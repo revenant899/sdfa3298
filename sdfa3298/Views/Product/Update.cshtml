@@ -1,0 +1,62 @@
+﻿@model UpdateProductVM
+@{
+    ViewData["Title"] = "Редагування товару";
+}
+
+<h1 class="text-center mb-3">Редагування товару</h1>
+<form enctype="multipart/form-data" asp-action="Update" method="post" class="w-50 m-auto p-3">
+    <input type="hidden" asp-for="Id" />
+    
+    <div class="form-group w-50 m-auto">
+        <label for="Name" class="form-label">Назва</label>
+        <input asp-for="Name" name="Name" class="form-control" type="text" />
+        <div class="ms-1">
+            <span asp-validation-for="Name" class="font-weight-bold text-danger small"></span>
+        </div>
+        <label for="Description" class="form-label mt-2">Опис</label>
+        <input asp-for="Description" name="Description" class="form-control" type="text" />
+        <div class="ms-1">
+            <span asp-validation-for="Description" class="font-weight-bold text-danger small"></span>
+        </div>
+        <label for="Price" class="form-label mt-2">Ціна</label>
+        <input min="0" asp-for="Price" name="Price" class="form-control" type="number" />
+        <div class="ms-1">
+            <span asp-validation-for="Price" class="font-weight-bold text-danger small"></span>
+        </div>
+        <label for="Amount" class="form-label mt-2">Кількість</label>
+        <input min="0" asp-for="Amount" name="Amount" class="form-control" type="number" />
+        <div class="ms-1">
+            <span asp-validation-for="Amount" class="font-weight-bold text-danger small"></span>
+        </div>
+        <label for="Category" class="form-label mt-2">Категорія</label>
+        <select asp-for="CategoryId" class="form-control">
+            @foreach(var category in Model.Categories)
+            {
+                if(category.Id == Model.CategoryId)
+                {
+                    <option selected value="@category.Id">@category.Name</option>
+                }
+                else
+                {
+                    <option value="@category.Id">@category.Name</option>
+                }
+            }
+        </select>
+        <div class="ms-1">
+            <span asp-validation-for="CategoryId" class="font-weight-bold text-danger small"></span>
+        </div>
+        <label for="Image" class="form-label mt-2">Зображення</label>
+
+        <input accept="image/*" name="File" asp-for="Image" class="form-control" type="file" />
+        <div class="ms-1">
+            <span asp-validation-for="Image" class="font-weight-bold text-danger small"></span>
+        <label class="form-text">Якщо не вибрати нове зображення, то залишиться поточне</label>
+
+
+
+    </div>
+    <div class="w-50 m-auto d-flex">
+        <input class="btn btn-success flex-grow-1 mx-1 my-3" type="submit" value="Зберегти" />
+        <a asp-action="Index" class="btn btn-dark flex-grow-1 mx-1 my-3">Повернутися</a>
+    </div>
+</form>

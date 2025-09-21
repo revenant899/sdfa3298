@@ -1,0 +1,24 @@
+﻿@model HomeVM
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="d-flex flex-row justify-content-center">
+    @* Categories *@
+    <div class="d-flex flex-column mx-2">
+        <a asp-action="Index" class="my-1 category-list-item">Всі товари</a>
+        @foreach (var category in Model.Categories)
+        {
+            <a asp-route-category="@category.Name" asp-action="Index" class="my-1 category-list-item">@category.Name</a>
+        }
+    </div>
+
+    @* Products *@
+    <div class="row row-cols-4 g-3 m-auto">
+        @foreach (var product in Model.Products)
+        {
+            <partial name="_ProductCard" model="product" />
+        }
+    </div>
+</div>

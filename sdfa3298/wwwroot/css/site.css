@@ -1,0 +1,100 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
+    color: var(--bs-secondary-color);
+    text-align: end;
+}
+
+.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
+    text-align: start;
+}
+
+.category-list-item {
+    text-decoration: none;
+    color: black;
+}
+
+    .category-list-item:hover {
+        cursor: pointer;
+        color: gray;
+    }
+
+.product-cover {
+    height: 200px;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.product-title {
+    font-size: 1.1em;
+    margin: 4px 0px;
+    color: black;
+    text-decoration: none;
+}
+
+    .product-title:hover {
+        text-decoration: underline;
+        color: red;
+        cursor: pointer;
+    }
+
+.product-price {
+    font-size: 1.3em;
+    font-weight: bold;
+    margin: 4px 0px;
+}
+
+.product-available {
+    font-size: 0.8em;
+    color: #00a046;
+    margin: 4px 0px;
+}
+
+.product-not-available {
+    font-size: 0.8em;
+    color: dimgrey;
+    margin: 4px 0px;
+}
+
+.product-cart-icon {
+    color: #00a046;
+    font-size: 1.8em;
+    font-weight: bold;
+    padding: 0px 5px;
+}
+
+    .product-cart-icon:hover {
+        cursor: pointer;
+        background-color: rgba(0, 0, 0, 0.04);
+    }
+
+.product-card:hover {
+    transform: scale(1.03, 1.03);
+    box-shadow: 1px 1px 5px black;
+}
+
+.nav-cart-icon:hover {
+    cursor: pointer;
+    background-color: rgba(0,0,0, 0.07);
+}

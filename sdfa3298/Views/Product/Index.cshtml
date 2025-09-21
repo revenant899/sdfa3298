@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Product>
+@{
+    ViewData["Title"] = "Товари";
+}
+
+<div class="d-flex">
+    <h1 class="flex-grow-1">Товари</h1>
+    <div class="flex-grow-1 text-end">
+        <a class="btn btn-dark" asp-controller="Product" asp-action="Create">Додати товар</a>
+    </div>
+</div>
+<div>
+    <table class="table table-striped w-75 m-auto">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col" class="text-center">Name</th>
+                <th scope="col" class="text-center">Price</th>
+                <th scope="col" class="text-center">Category</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in Model)
+            {
+                <tr>
+                    <td>@product.Id</td>
+                    <td class="text-center">@product.Name</td>
+                    <td class="text-center">@product.Price</td>
+                    <td class="text-center">@product.Category?.Name</td>
+                    <td class="text-end">
+                        <a asp-action="Update" asp-route-id="@product.Id" class="btn btn-success m-1">Редагувати</a>
+                        <button onclick="deleteProduct('@System.Text.Json.JsonSerializer.Serialize(new { product.Id, product.Name })')" data-bs-toggle="modal" data-bs-target="#deleteModal" class="btn btn-danger m-1">Видалити</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
