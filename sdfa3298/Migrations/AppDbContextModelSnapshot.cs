@@ -163,6 +163,9 @@ namespace sdfa3298.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("BirthDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
@@ -175,6 +178,9 @@ namespace sdfa3298.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("LockoutEnabled")
@@ -273,9 +279,6 @@ namespace sdfa3298.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("float")
                         .HasDefaultValue(0.0);
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 

@@ -15,6 +15,7 @@ namespace sdfa3298.Controllers
 {
     public class HomeController : Controller
     {
+
         private readonly IProductRepository _productRepository;
         private readonly PaginationVM _pagination;
         private readonly ILogger<HomeController> _logger;
